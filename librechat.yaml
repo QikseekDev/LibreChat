@@ -1,0 +1,233 @@
+version: 1.2.1
+cache: true
+
+endpoints:
+  custom:
+    # ──────────────────────────────────────────────
+    # Your existing endpoints
+    # ──────────────────────────────────────────────
+    - name: "NVIDIA"
+      apiKey: "${NVIDIA_API_KEY}"
+      baseURL: "https://integrate.api.nvidia.com/v1"
+      models:
+        default:
+          - "nvidia/nemotron-3-ultra-550b-a55b"
+        fetch: true
+      titleConvo: true
+      summarize: false
+      modelDisplayLabel: "NVIDIA"
+
+    - name: "OpenRouter"
+      apiKey: "${OPENROUTER_API_KEY}"
+      baseURL: "https://openrouter.ai/api/v1"
+      models:
+        default:
+          - "openrouter/auto"
+          - "deepseek/deepseek-chat"
+        fetch: true
+      titleConvo: true
+      summarize: false
+      modelDisplayLabel: "OpenRouter"
+
+    # ──────────────────────────────────────────────
+    # Google AI Studio (Gemini) — Best value, 2M context
+    # ──────────────────────────────────────────────
+    - name: "Google AI Studio"
+      apiKey: "${GOOGLE_AI_STUDIO_API_KEY}"
+      baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/"
+      models:
+        default:
+          - "gemini-1.5-flash"
+          - "gemini-1.5-pro"
+          - "gemini-1.0-pro"
+        fetch: true
+      titleConvo: true
+      summarize: false
+      modelDisplayLabel: "Google"
+
+    # ──────────────────────────────────────────────
+    # Groq — Fastest inference (LPU hardware)
+    # ──────────────────────────────────────────────
+    - name: "Groq"
+      apiKey: "${GROQ_API_KEY}"
+      baseURL: "https://api.groq.com/openai/v1"
+      models:
+        default:
+          - "llama-3.1-70b-versatile"
+          - "llama-3.1-8b-instant"
+          - "mixtral-8x7b-32768"
+          - "gemma2-9b-it"
+        fetch: true
+      titleConvo: true
+      summarize: false
+      modelDisplayLabel: "Groq"
+
+    # ──────────────────────────────────────────────
+    # Cerebras — Insane speed (2000+ tok/s), no limits yet
+    # ──────────────────────────────────────────────
+#    - name: "Cerebras"
+ #     apiKey: "${CEREBRAS_API_KEY}"
+  #    baseURL: "https://api.cerebras.ai/v1"
+   #   models:
+    #    default:
+     #     - "llama3.1-70b"
+      #    - "llama3.1-8b"
+     #   fetch: true
+    #  titleConvo: true
+   #   summarize: false
+  #    modelDisplayLabel: "Cerebras"
+
+    # ──────────────────────────────────────────────
+    # Together AI — Widest model variety (100+ models)
+    # ──────────────────────────────────────────────
+#    - name: "Together AI"
+ #     apiKey: "${TOGETHER_API_KEY}"
+  #    baseURL: "https://api.together.xyz/v1"
+   #   models:
+    #    default:
+     #     - "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo"
+      #    - "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+       #   - "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"
+        #  - "Qwen/Qwen2.5-72B-Instruct-Turbo"
+       #   - "deepseek-ai/DeepSeek-V2.5"
+      #    - "nvidia/Nemotron-3-Ultra"
+     #     - "codellama/CodeLlama-34b-Instruct-hf"
+    #      - "mistralai/Mixtral-8x7B-Instruct-v0.1"
+   #     fetch: true
+  #    titleConvo: true
+ #     summarize: false
+#      modelDisplayLabel: "Together"
+
+    # ──────────────────────────────────────────────
+    # Fireworks AI — Curated open models, function calling
+    # ──────────────────────────────────────────────
+#    - name: "Fireworks AI"
+ #     apiKey: "${FIREWORKS_API_KEY}"
+  #    baseURL: "https://api.fireworks.ai/inference/v1"
+   #   models:
+    #    default:
+     #     - "accounts/fireworks/models/llama-v3p1-405b-instruct"
+      #    - "accounts/fireworks/models/llama-v3p1-70b-instruct"
+       #   - "accounts/fireworks/models/llama-v3p1-8b-instruct"
+        #  - "accounts/fireworks/models/qwen2p5-72b-instruct"
+         # - "accounts/fireworks/models/deepseek-v2-5"
+        #  - "accounts/fireworks/models/mixtral-8x7b-instruct"
+       #   - "accounts/fireworks/models/codellama-34b-instruct"
+      #  fetch: true
+     # titleConvo: true
+    #  summarize: false
+   #   modelDisplayLabel: "Fireworks"
+
+    # ──────────────────────────────────────────────
+    # DeepSeek Direct — Best coding/reasoning model
+    # ──────────────────────────────────────────────
+#    - name: "DeepSeek"
+ #     apiKey: "${DEEPSEEK_API_KEY}"
+  #    baseURL: "https://api.deepseek.com/v1"
+   #   models:
+    #    default:
+     #     - "deepseek-chat"
+      #    - "deepseek-coder"
+     #   fetch: true
+    #  titleConvo: true
+   #   summarize: false
+  #    modelDisplayLabel: "DeepSeek"
+
+    # ──────────────────────────────────────────────
+    # Mistral (La Plateforme) — Codestral, Large, Nemo
+    # ──────────────────────────────────────────────
+    - name: "Mistral"
+      apiKey: "${MISTRAL_API_KEY}"
+      baseURL: "https://api.mistral.ai/v1"
+      models:
+        default:
+          - "mistral-large-latest"
+          - "mistral-nemo-latest"
+          - "codestral-latest"
+          - "open-mistral-7b"
+          - "open-mixtral-8x7b"
+        fetch: true
+      titleConvo: true
+      summarize: false
+      modelDisplayLabel: "Mistral"
+
+    # ──────────────────────────────────────────────
+    # SambaNova Cloud — Free Llama 3.1 405B access
+    # ──────────────────────────────────────────────
+    - name: "SambaNova"
+      apiKey: "${SAMBANOVA_API_KEY}"
+      baseURL: "https://api.sambanova.ai/v1"
+      models:
+        default:
+          - "Meta-Llama-3.1-405B-Instruct"
+          - "Meta-Llama-3.1-70B-Instruct"
+        fetch: true
+      titleConvo: true
+      summarize: false
+      modelDisplayLabel: "SambaNova"
+
+    # ──────────────────────────────────────────────
+    # Requesty — Aggregator router (fallback)
+    # ──────────────────────────────────────────────
+#    - name: "Requesty"
+ #     apiKey: "${REQUESTY_API_KEY}"
+  #    baseURL: "https://router.requesty.ai/v1"
+   #   models:
+    #    default:
+     #     - "deepseek/deepseek-chat"
+      #    - "meta-llama/llama-3.1-405b-instruct"
+       #   - "google/gemini-flash-1.5"
+      #  fetch: true
+     # titleConvo: true
+    #  summarize: false
+   #   modelDisplayLabel: "Requesty"
+
+    # ──────────────────────────────────────────────
+    # Pollinations — No key needed, free but slower
+    # ──────────────────────────────────────────────
+#    - name: "Pollinations"
+ #     apiKey: "not-needed"
+  #    baseURL: "https://text.pollinations.ai/openai"
+   #   models:
+    #    default:
+     #     - "gpt-4o"
+      #    - "gpt-4o-mini"
+       #   - "claude-3.5-sonnet"
+        #  - "gemini-1.5-flash"
+         # - "llama-3.1-405b"
+        #fetch: false
+     # titleConvo: true
+#      summarize: false
+ #     modelDisplayLabel: "Pollinations (Free)"
+
+# ──────────────────────────────────────────────
+# Model Specs — controls which preset is selected by default on a new chat.
+# The entry with "default: true" is what LibreChat preselects when the user
+# opens a fresh conversation (instead of remembering the last-used model).
+# ──────────────────────────────────────────────
+interface:
+  modelSelect: true    # brings back the model dropdown / switching
+  parameters: true     # optional: bring back the parameter panel
+  presets: true        # optional: bring back preset
+  modelSpecs:
+    enforce: false
+    prioritize: false
+    list:
+      - name: "openrouter-auto"
+        label: "OpenRouter Auto"
+        default: true
+        description: "Default model for new chats — OpenRouter's auto routing"
+        preset:
+          endpoint: "OpenRouter"
+          model: "openrouter/auto"
+          modelLabel: "OpenRouter Auto"
+          max_tokens: 8192
+# ──────────────────────────────────────────────
+# COHERE — Use NATIVE provider (not OpenAI-compatible)
+# Add this to your .env and enable in LibreChat UI → Settings → Providers → Cohere
+# ──────────────────────────────────────────────
+# COHERE_API_KEY=your_key_here
+#
+# Models: command-r-plus, command-r, command-light
+# Embeddings: embed-english-v3.0, embed-multilingual-v3.0
+# Best for: RAG, citations, tool use, embeddings
