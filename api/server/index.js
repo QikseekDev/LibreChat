@@ -435,7 +435,7 @@ const startServer = async () => {
   app.use('/api/rum', routes.rum);
 
   app.use('/metrics', metricsRouter);
-
+  app.get('/.well-known/assetlinks.json', (req, res) => { res.status(200).type('application/json').send([{ relation: ['delegate_permission/common.handle_all_urls'], target: { namespace: 'android_app', package_name: 'com.vojta.vojtachat', sha256_cert_fingerprints: ['CE:95:7D:BF:A0:46:50:7C:B0:85:4C:1F:6C:1B:A5:54:5B:3D:35:D7:4E:3B:C7:1E:66:4B:98:64:49:E1:12:33'] } }]); });
   /** 404 for unmatched API routes */
   app.use('/api', apiNotFound);
 
