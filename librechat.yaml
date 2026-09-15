@@ -221,7 +221,6 @@ interface:
           endpoint: "OpenRouter"
           model: "openrouter/auto"
           modelLabel: "OpenRouter Auto"
-          max_tokens: 8192
 # ──────────────────────────────────────────────
 # COHERE — Use NATIVE provider (not OpenAI-compatible)
 # Add this to your .env and enable in LibreChat UI → Settings → Providers → Cohere
